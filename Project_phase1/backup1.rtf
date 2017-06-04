@@ -1,0 +1,70 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1345\cocoasubrtf380
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red170\green13\blue145;\red92\green38\blue153;\red196\green26\blue22;
+\red63\green110\blue116;\red38\green71\blue75;\red28\green0\blue207;\red46\green13\blue110;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 back up main before adding thread\
+\
+\pard\tx529\pardeftab529\pardirnatural
+
+\f1\fs22 \cf2 \CocoaLigature0 int\cf0  main()\
+\{\
+    \cf3 std\cf0 ::\cf3 string\cf0  address;\
+    address = \cf4 "/Users/codeWorm/Documents/education/Sharif University /CSE/Fundemental of programming/project_codes/stupiddata"\cf0 ;\
+    \cf3 std\cf0 ::\cf3 vector\cf0  <\cf5 Files\cf0 > all_files;\
+    \cf6 Find_adrs\cf0 (address, all_files);\
+    \cf2 int\cf0  stage;\
+    \cf3 std\cf0 :: \cf3 cout\cf0 << \cf4 "Choose one of the following actions:\\n"\cf0 ;\
+    \cf3 std\cf0 :: \cf3 cout\cf0 << \cf4 "1) Count the repetitions of a word\\n"\cf0 ;\
+    \cf3 std\cf0 :: \cf3 cout\cf0 << \cf4 "2) Replace a word\\n"\cf0 ;\
+    \cf3 std\cf0 :: \cf3 cout\cf0 << \cf4 "3) Find the paragraph of a word\\n"\cf0 ;\
+    \cf3 std\cf0 :: \cf3 cin\cf0 >> stage;\
+    \cf3 std\cf0 :: \cf3 string\cf0  target;\
+    \cf3 std\cf0 :: \cf3 cout\cf0 <<\cf4 "Enter your word\\n"\cf0 ;\
+    \cf3 std\cf0 :: \cf3 cin\cf0 >> target;\
+    \
+    std:: vector <std::thread> vecThread;\
+    \
+    \cf2 switch\cf0  (stage)\
+    \{\
+        \cf2 case\cf0  \cf7 1\cf0 :\
+        \{\
+            \cf2 for\cf0  (\cf2 int\cf0  i = \cf7 0\cf0 ; i < all_files.\cf8 size\cf0 (); i++)\
+            \{\
+                all_files[\cf8 i\cf0 ].\cf6 Cnt_Wrd\cf0 (target);\
+            \}\
+            \cf2 break\cf0 ;\
+        \}\
+            \
+        \cf2 case\cf0  \cf7 2\cf0 :\
+        \{\
+            \cf3 std\cf0 ::\cf3 string\cf0  alter;\
+            \cf3 std\cf0 ::\cf3 cout\cf0 <<\cf4 "Enter the second word\\n"\cf0 ;\
+            \cf3 std\cf0 ::\cf3 cin\cf0 >> alter;\
+            \cf2 for\cf0  (\cf2 int\cf0  i = \cf7 0\cf0 ; i < all_files.\cf8 size\cf0 (); i++)\
+            \{\
+                all_files[\cf8 i\cf0 ].\cf6 Rpl_Wrd\cf0 (target, alter);\
+            \}\
+            \cf2 break\cf0 ;\
+        \}\
+            \
+        \cf2 case\cf0  \cf7 3\cf0 :\
+        \{\
+            \cf2 for\cf0  (\cf2 int\cf0  i = \cf7 0\cf0 ; i < all_files.\cf8 size\cf0 (); i++)\
+            \{\
+                all_files[\cf8 i\cf0 ].\cf6 Prg_Wrd\cf0 (target);\
+            \}\
+            \cf2 break\cf0 ;\
+        \}\
+            \
+        \cf2 default\cf0 :\
+        \{\
+            \cf3 std\cf0 :: \cf3 cout\cf0  << \cf4 "We're Shakh and we know it!\\n"\cf0 ;\
+            \cf2 break\cf0 ;\
+        \}\
+    \}\
+    \
+    \cf2 return\cf0  \cf7 0\cf0 ;\
+\}}
